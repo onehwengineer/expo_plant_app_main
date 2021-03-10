@@ -83,9 +83,9 @@ export const explore_images = [
   
 
 export const profile = {
-    username: "react-ui-kit",
+    username: "default",
     location: "Europe",
-    email: "contact@react-ui-kit.com",
+    email: "contact@somedomain.com",
     avatar: require("../../assets/images/avatar.png"),
     budget: 1000,
     monthly_cap: 5000,

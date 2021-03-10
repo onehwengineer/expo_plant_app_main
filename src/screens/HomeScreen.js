@@ -9,6 +9,7 @@ const { width } = Dimensions.get("window");
 const tabs = ["Products", "Inspirations", "Shop"];
     // TAB NAMES SHOULD BE CONSISTENT WITH categories_mocks.tags
 
+    
 const HomeScreen = ( {navigation} ) => {
     /* Use useState() for vars that will be updated via interaction with the screen */
     const [activeTab, setActiveTab] = useState(tabs[0]);
@@ -78,7 +79,7 @@ const HomeScreen = ( {navigation} ) => {
                 <Text style={{fontSize: sizes.h1, fontWeight: weight.bold}}> 
                     Home 
                 </Text>
-                <TouchableOpacity onPress={() => alert("Navigate to Settings")}>
+                <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
                     <Image source={profile.avatar} style={styles.avatar} />
                 </TouchableOpacity>
             </View>
@@ -105,7 +106,8 @@ const HomeScreen = ( {navigation} ) => {
 const styles = StyleSheet.create({
     /*
         !IMPORTANT!
-        - FOR ALL BLOCKS (block 1,2,3), MAINTAIN SAME : paddingHorizontal OR marginHorizontal
+        - FOR ALL BLOCKS (block 1,2,3...), MAINTAIN SAME : paddingHorizontal OR marginHorizontal
+            - (sizes.base * 2)
     */
 
     container: {

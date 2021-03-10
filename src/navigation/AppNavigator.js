@@ -8,7 +8,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ExploreScreen from '../screens/ExploreScreen';
-import ProductScreen from '../screens/ProductScreen';
+import ProductsScreen from '../screens/ProductsScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 
 import {colors, sizes} from '../styles/Styles'; 
 
@@ -62,8 +63,13 @@ export default function AppNavigator() {
                         options={{title: false}}
                     />
                     <Stack.Screen 
-                        name="Product" 
-                        component={ProductScreen} 
+                        name="Products" 
+                        component={ProductsScreen} 
+                        options={{title: false}}
+                    />
+                    <Stack.Screen 
+                        name="Settings" 
+                        component={SettingsScreen} 
                         options={{title: false}}
                     />
                 </Stack.Navigator>

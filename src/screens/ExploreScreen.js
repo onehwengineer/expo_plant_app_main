@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, TextInput, Image,
     TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 
 import { LinearGradient } from "expo-linear-gradient";
+import * as Icon from "@expo/vector-icons";
 
 import {colors, sizes, weight, formStyles} from '../styles/Styles'; 
 import {explore_images} from '../constants/Mocks'; 
@@ -28,6 +29,16 @@ const ExploreScreen = ( {navigation} ) => {
                     value={searchString}
                     onSubmitEditing={() => alert("Submitted!")}
                 />
+                <TouchableOpacity 
+                    style={styles.searchIcon}
+                    onPress={() => alert("Search for : " + searchString)}
+                >
+                    <Icon.FontAwesome
+                        name={"search"}
+                        size={sizes.body}
+                        color={colors.grayLight}
+                    />
+                </TouchableOpacity>
             </View>
         );
     };
@@ -46,7 +57,7 @@ const ExploreScreen = ( {navigation} ) => {
         return(
             <TouchableOpacity
                 key={`img-${index}`}
-                onPress={() => navigation.navigate("Product")}
+                onPress={() => navigation.navigate("Products")}
             >
                 <Image
                     source={img}
@@ -63,7 +74,7 @@ const ExploreScreen = ( {navigation} ) => {
             <View style={styles.block2a}>
                 <TouchableOpacity
                     style={[styles.image, styles.mainImage]}
-                    onPress={() => navigation.navigate("Product")}
+                    onPress={() => navigation.navigate("Products")}
                 >
                     <Image source={mainImage} style={[styles.image, styles.mainImage]} />
                 </TouchableOpacity>
@@ -111,7 +122,7 @@ const ExploreScreen = ( {navigation} ) => {
 const styles = StyleSheet.create({
     /*
         !IMPORTANT!
-        - FOR ALL BLOCKS (block 1,2,3), MAINTAIN SAME : paddingHorizontal OR marginHorizontal
+        - FOR ALL BLOCKS (block 1,2,3...), MAINTAIN SAME : paddingHorizontal OR marginHorizontal
             - (sizes.base * 2)
     */
 
@@ -170,13 +181,16 @@ const styles = StyleSheet.create({
 
     searchBlock: {
         flex: 0.6, // width of search box
-        justifyContent: "center",
-        //backgroundColor: "pink" // debug
+        flexDirection: "row",
+        justifyContent: "space-between",
+        //justifyContent: "center",
+        //backgroundColor: "cyan" // debug
     },
     searchInput: {
+        width: "80%",
         height: sizes.base * 2,
-        paddingLeft: sizes.base / 1.333,
-        paddingRight: sizes.base * 1.5,
+        paddingLeft: sizes.base / 2,
+        //paddingRight: sizes.base * 1.5,
         
         borderWidth: StyleSheet.hairlineWidth,
         borderRadius: sizes.radius,
@@ -188,6 +202,10 @@ const styles = StyleSheet.create({
         color: colors.black,
         //backgroundColor: "cyan" // debug
     },
+    searchIcon: {
+        alignItems: "center",
+        justifyContent: "center",
+      },
 });
 
 
